@@ -27,8 +27,8 @@ Hardware
 - 9v Battery
 - USB-C to USB-C Cable
 - Rotary Encoder with Pushbutton
-- Mini Breadboard with 170 Tie Points
 - Black and White LEGO Bricks
+- Mini Breadboard with 170 Tie Points (Optional)
   
 Software 
 - Arduino IDE 2.3.3
@@ -47,8 +47,12 @@ Conditions:
 -	Portal Creation Condition: Both blue and orange states must be activated to initiate an “open” portal
 -	Error Condition: If the user attempts to “open” a portal without activating both blue and orange portal states, the LED turns white and starts blinking.
 
-## Screenshots
+## Pictures
+![IMG_7910](https://github.com/user-attachments/assets/b05476b3-ef4f-4c89-9869-7f8d6363897f)
 
+![IMG_7911](https://github.com/user-attachments/assets/c7f8f58e-3d9f-4a78-87c9-530ad582bd76)
+
+![IMG_7912](https://github.com/user-attachments/assets/cd8ff3d4-f730-4793-b6e9-656b1c0ad8e6)
 
 
 ## Launch
@@ -66,14 +70,57 @@ Installation and Setup:
 - Navigate to Sketch > Include Library > Manage Libraries.
 - Search for the Adafruit_Neopixel Library installation and add it to Arduino IDE.
 - Navigate to File > Open > Portal_Gun > Upload.
-- Attach hardware components according to the diagram provided here:
+- Attach hardware components according to the diagram provided here: ![image](https://github.com/user-attachments/assets/052d36f1-3c2d-41b1-bdb2-ea342ffe0ed3)
 
 Time to Play!
 
 
 ## Usage
-`example-of-code`
+Setting Portal States
 
+  if (state == 1) {
+    activatePortal(1); 
+  } else if (state == 2) {
+    activatePortal(2);  
+  } else {
+    setLEDColor(0,0,0); 
+    
+
+Triggering Portal States 
+
+void activatePortal(int portal) {
+  if (portal == 1) { 
+    activatebluePortal = true; 
+    activateorangePortal = false; 
+    setLEDColor(0, 0, 255); 
+  } else if (portal == 2) { 
+    activatebluePortal = false; 
+    activateorangePortal = true; 
+    setLEDColor(255, 100, 0); 
+
+    
+Setting Error State
+
+  if (digitalRead(BUTTON_PIN) == LOW) {
+    if (activatebluePortal && activateorangePortal) {
+      setLEDColor(255,255,255); 
+    } else {
+        triggerErrorState(); 
+    }
+  }
+}
+
+
+Triggering Error State
+
+void triggerErrorState() { 
+  for (int i = 0; i < 5; i++) { 
+    setLEDColor(255, 255, 255); 
+    delay(500); 
+    setLEDColor(0, 0, 0); 
+    delay(500); 
+  }
+}
 
 ## Project Status
 Project is: _COMPLETE_ 
@@ -101,5 +148,8 @@ Future Feature Developments:
 
 ## Acknowledgements
 - My Portal Gun model was inspired by the Portal games, developed by Valve.
-- This project uses these images as a visual reference for the  model: https://static.wikia.nocookie.net/half-life/images/b/bb/Aperture_Science_Handheld_Portal_Device_Portal.jpg/revision/latest?cb=20110519012833&path-prefix=en; https://ideas.lego.com/projects/7d5b80ff-2ce5-4910-82e9-33ccdf8f41d1.
 - This project includes a library developed by Adafruit Industries on GitHub: https://github.com/adafruit/Adafruit_NeoPixel.
+- This project uses the following images as a visual reference for the model:
+- https://static.wikia.nocookie.net/half-life/images/b/bb/Aperture_Science_Handheld_Portal_Device_Portal.jpg/revision/latest?cb=20110519012833&path-prefix=en;
+- https://ideas.lego.com/projects/7d5b80ff-2ce5-4910-82e9-33ccdf8f41d1.
+
