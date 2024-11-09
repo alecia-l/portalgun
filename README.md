@@ -48,9 +48,8 @@ Conditions:
 -	Error Condition: If the user attempts to “open” a portal without activating both blue and orange portal states, the LED turns white and starts blinking.
 
 ## Pictures
-![IMG_7910](https://github.com/user-attachments/assets/b05476b3-ef4f-4c89-9869-7f8d6363897f)
 
-![IMG_7911](https://github.com/user-attachments/assets/c7f8f58e-3d9f-4a78-87c9-530ad582bd76)
+![0](https://github.com/user-attachments/assets/f9c6de7c-a74b-4a0d-b421-f01353d7a3b8)
 
 ![IMG_7912](https://github.com/user-attachments/assets/cd8ff3d4-f730-4793-b6e9-656b1c0ad8e6)
 
