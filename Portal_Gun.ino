@@ -77,7 +77,7 @@ void activatePortal(int portal) {
 
 // set led strip colour
 void setLEDColor(uint8_t r, uint8_t g, uint8_t b) { // set function within rbg values, but does not return a value
-  for(int i = 0; i < NUMPIXELS; i++) { // loop moves to next led each time it runs and increases by 1; loop is run as long as i < 16
+  for(int i = 0; i < NUMPIXELS; i++) { // loop moves to next led each time it runs and increases by 1; loop is run as long as i < 13
     pixels.setPixelColor(i, pixels.Color(r, g, b)); // set led pixel colour
   }
   pixels.show(); // update strip colour based on previous input
