@@ -75,18 +75,22 @@ Time to Play!
 
 
 ## Usage
-Setting Portal States
+### Setting Portal States
 
+``` cpp
   if (state == 1) {
     activatePortal(1); 
   } else if (state == 2) {
     activatePortal(2);  
   } else {
     setLEDColor(0,0,0); 
+  }
+```
     
 
-Triggering Portal States 
+### Triggering Portal States 
 
+``` cpp
 void activatePortal(int portal) {
   if (portal == 1) { 
     activatebluePortal = true; 
@@ -96,10 +100,13 @@ void activatePortal(int portal) {
     activatebluePortal = false; 
     activateorangePortal = true; 
     setLEDColor(255, 100, 0); 
-
+  }
+}
+```
     
-Setting Error State
+### Setting Error State
 
+``` cpp
   if (digitalRead(BUTTON_PIN) == LOW) {
     if (activatebluePortal && activateorangePortal) {
       setLEDColor(255,255,255); 
@@ -107,11 +114,11 @@ Setting Error State
         triggerErrorState(); 
     }
   }
-}
+```
 
+### Triggering Error State
 
-Triggering Error State
-
+``` cpp
 void triggerErrorState() { 
   for (int i = 0; i < 5; i++) { 
     setLEDColor(255, 255, 255); 
@@ -120,6 +127,7 @@ void triggerErrorState() {
     delay(500); 
   }
 }
+```
 
 ## Project Status
 Project is: _COMPLETE_ 
